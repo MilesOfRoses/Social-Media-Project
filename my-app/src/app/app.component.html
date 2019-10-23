@@ -1,0 +1,37 @@
+
+
+<div id="mainWrapper">
+    <h1 [ngClass]="classList">My Thoughts</h1>
+    <!-- <section *ngFor="let post of posts">
+        <h1 class="title"> {{post.title}} </h1>
+        <p>{{post.body}}</p>
+        <span [ngClass]="{bold: post.comments > 6}"> {{post.comments}}</span>
+    </section> -->
+  <!-- above single post div, loop over the array and only show the titles. they can be in any elements. use {{post.title}} -->
+  <button id="newThought">New Thought</button>
+  <div class="posts">
+    <section *ngFor="let post of posts">
+      <h3 >{{post.title}}</h3>
+      <p >{{post.body}}</p>
+      <hr>
+    </section>
+  </div>
+
+    <form-social id="formWrapper"
+      *ngFor="let post of posts; let i = index"
+      [title]="post.title"
+      [body]="post.body"
+      [comments]="post.comments"
+      (newTitle)="onNewTitle($event, i)"
+    ></form-social>
+
+
+
+
+</div>
+
+
+
+
+
+
